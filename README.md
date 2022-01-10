@@ -20,6 +20,8 @@ This AI platform was the result of collaboration of: Hellenic Center for Marine 
 
 <p align="center">
 <img src = "https://github.com/dimpolitik/Deep-Otolith/blob/main/otoliths.png" width="60%" height="60%" />
+  <br>
+    Fig. 2. Otoliths tested with DeepOtolith.
 </p>
 
 ## References
