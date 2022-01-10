@@ -8,6 +8,7 @@ This AI platform was the result of collaboration of: Hellenic Center for Marine 
 
 <p align="center">
 <img src = "https://github.com/dimpolitik/Deep-Otolith/blob/main/SearchPage.PNG" width="60%" height="60%" />
+<figcaption>Search page of DeepOtolith.</figcaption>
 </p>
 
 ## Tested fish species
