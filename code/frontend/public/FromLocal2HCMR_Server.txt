@@ -1,0 +1,54 @@
+1.add server.wsgi in backend & adjust path
+-----------------------------------------------------------------------
+2.server.py: delete (port = 8000)
+-----------------------------------------------------------------------
+3.config.py: change the three paths
+
+/home/dimpolit/Dimitris-Pavlos/otolith/backend/static/img/uploads/
+
+/home/dimpolit/Dimitris-Pavlos/otolith/backend/models/best_model_val.h5
+
+/home/dimpolit/Dimitris-Pavlos/otolith/backend/models/pagellus.h5
+
+/home/dimpolit/Dimitris-Pavlos/otolith/backend/models/norway.h5
+------------------------------------------------------------------------
+4.constants.js: make URL empty ''
+------------------------------------------------------------------------
+5.CHANGE PATHS IN:
+
+sudo vi /etc/apache2/sites-available/backend.conf
+
+<VirtualHost *:80>
+     # Add machine's IP address (use ifconfig command)
+     ServerName otoliths.ath.hcmr.gr
+     DocumentRoot "/home/dimpolit/otolith_apache/backend/"
+
+     WSGIDaemonProcess server user=dimpolit group=dimpolit threads=5 \
+         python-home=/home/dimpolit/venv_otoliths \
+         python-path=/home/dimpolit/otolith_apache/backend
+
+     WSGIScriptAlias / /home/dimpolit/otolith_apache/backend/server.wsgi
+
+     # Give an alias to to start your website url with
+     <Directory /home/dimpolit/otolith_apache/backend>
+        WSGIProcessGroup server
+        WSGIApplicationGroup %{GLOBAL}
+        <Files server.wsgi>
+        Require all granted
+        </Files>
+     </Directory>
+</VirtualHost>
+-------------------------------------------------------------------------
+--------------------------------------------------------------------------
+# Restart Apache
+sudo systemctl restart apache2
+
+# To see errors
+sudo -s first and then
+/var/log/apache2
+vi error.log
+
+# To pip install in venv
+. ./bin/activate
+pip install ???
+ 

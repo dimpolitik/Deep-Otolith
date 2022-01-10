@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/2.757a7212.chunk.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.a80545a3.chunk.css')}}">
+{% endblock %}
+
+{% block app_content %}
+<!-- Masthead-->
+  <header class="masthead">
+      <div class="container d-flex h-100 align-items-center">
+          <div class="mx-auto text-center">
+              <h1 class="mx-auto my-0 text-uppercase"><span class="dark">Deep</span>Otolith</h1>
+              <h2 class="text-white-50 mx-auto mt-2 mb-5">Instant fish age prediction, powered by AI.</h2>
+              <a class="btn btn-primary js-scroll-trigger" href="#prediction-app">Get Started</a>
+          </div>
+      </div>
+  </header>
+<!-- App-->
+  <section class="app-section text-center" id="prediction-app">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-8 mx-auto">
+                  <h2 class="text-white mb-4 section-heading"> Try it out!</h2>
+                  <i class="fas fa-cogs fa-2x text-white"></i>
+                  <noscript>You need to enable JavaScript to run this app.</noscript><div id="root" class="m-5"></div><script>!function(e){function r(r){for(var n,i,a=r[0],c=r[1],l=r[2],s=0,p=[];s<a.length;s++)i=a[s],Object.prototype.hasOwnProperty.call(o,i)&&o[i]&&p.push(o[i][0]),o[i]=0;for(n in c)Object.prototype.hasOwnProperty.call(c,n)&&(e[n]=c[n]);for(f&&f(r);p.length;)p.shift()();return u.push.apply(u,l||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,a=1;a<t.length;a++){var c=t[a];0!==o[c]&&(n=!1)}n&&(u.splice(r--,1),e=i(i.s=t[0]))}return e}var n={},o={1:0},u=[];function i(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,i),t.l=!0,t.exports}i.e=function(e){var r=[],t=o[e];if(0!==t)if(t)r.push(t[2]);else{var n=new Promise((function(r,n){t=o[e]=[r,n]}));r.push(t[2]=n);var u,a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAttribute("nonce",i.nc),a.src=function(e){return i.p+"static/js/"+({}[e]||e)+"."+{3:"9622b60e"}[e]+".chunk.js"}(e);var c=new Error;u=function(r){a.onerror=a.onload=null,clearTimeout(l);var t=o[e];if(0!==t){if(t){var n=r&&("load"===r.type?"missing":r.type),u=r&&r.target&&r.target.src;c.message="Loading chunk "+e+" failed.\n("+n+": "+u+")",c.name="ChunkLoadError",c.type=n,c.request=u,t[1](c)}o[e]=void 0}};var l=setTimeout((function(){u({type:"timeout",target:a})}),12e4);a.onerror=a.onload=u,document.head.appendChild(a)}return Promise.all(r)},i.m=e,i.c=n,i.d=function(e,r,t){i.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,r){if(1&r&&(e=i(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(i.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)i.d(t,n,function(r){return e[r]}.bind(null,n));return t},i.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(r,"a",r),r},i.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},i.p="/",i.oe=function(e){throw console.error(e),e};var a=this.webpackJsonpfrontend=this.webpackJsonpfrontend||[],c=a.push.bind(a);a.push=r,a=a.slice();for(var l=0;l<a.length;l++)r(a[l]);var f=c;t()}([])</script><script src="/static/js/2.0f1bc311.chunk.js"></script><script src="/static/js/main.902e93d5.chunk.js"></script>
+              </div>
+          </div>
+          <img class="img-fluid d-none d-md-inline" src="{{url_for('static', filename='img/otolith-nobg.png')}}" alt="" />
+      </div>
+  </section>
+
+  <section class="bg-primary about-section" id="about">
+     <div class="container">
+        <div class="text-center">
+            <h2 class="text-white-50 section-heading mb-4">Who we are</h2>
+            <p class="text-white lead mb-0">We’re a team of marine scientists,
+                <br> programmers and machine learning experts,
+                <br> working together to advance AI in Fisheries Science.</p>
+        </div>
+     </div>
+  </section>
+
+  <section class="projects-section bg-light">
+      <div class="container">
+          <!-- Featured -->
+          <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+              <div class="col-xl-5 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{{url_for('static', filename='img/ai.jpg')}}" alt="Artificial Intelligence" /></div>
+              <div class="col-xl-7 col-lg-5">
+                  <div class="featured-text text-center text-lg-left">
+                      <h3 class="font-weight-bold text-info">Our Story</h3>
+                      <p class="text-black-50 mb-0">An online tool for estimating the age of fish from otolith images using Deep Learning.</p>
+                      <p class="text-black-50 mb-0">For more details, see: </p>
+                      <a href="https://docs.google.com/document/d/1M4KciZ13AiOe37FBD5Pd5YDh3whDlPdm/edit">Politikos D., Sikiniotis N. et al. 2021. DeepOtolith: A web-tool for fish age estimation from otolith images using deep learning (under review).</a>
+                 </div>
+              </div>
+          </div>
+          <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+              <div class="col-lg-6"><img class="img-fluid" src="{{url_for('static', filename='img/image-01.jpg')}}"></div>
+              <div class="col-lg-6">
+                  <div class="bg-black text-center h-100 project">
+                      <div class="d-flex h-100">
+                          <div class="project-text w-100 my-auto text-center text-lg-left">
+                              <h4 class="text-white">Motive</h4>
+                              <p class="mb-0 text-white-50">Accurate estimation of fish ageing is crucial for assessing
+                                  the status of fish stocks and developing management plans for ensuring their sustainability.
+                                  The prevailing methods of fish ageing are based on manual readings of otolith images by experts,
+                                  a process that is often time-consuming and costly.</p>
+                              <hr class="d-none d-lg-block mb-0 ml-0" />
+                          </div>
+                      </div>
+                  </div>
+              </div>         
+          </div>
+
+          <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+              <div class="col-lg-6"><img class="img-fluid" src="{{url_for('static', filename='img/image-02.jpg')}}"></div>
+              <div class="col-lg-6 order-lg-first">
+                  <div class="bg-black text-center h-100 project">
+                      <div class="d-flex h-100">
+                          <div class="project-text w-100 my-auto text-center text-lg-right">
+                              <h4 class="text-white">Future Work</h4>
+                              <p class="mb-0 text-white-50">Our long term aim is to extend this tool by adding more fish species and improving the predictability of existing ones.</p>
+                              <hr class="d-none d-lg-block mb-0 mr-0" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+              <div class="col-lg-6"><img class="img-fluid" src="{{url_for('static', filename='img/image-03.jpg')}}"></div>
+              <div class="col-lg-6">
+                  <div class="bg-black text-center h-100 project">
+                      <div class="d-flex h-100">
+                          <div class="project-text w-100 my-auto text-center text-lg-left">
+                              <h4 class="text-white">Contributing</h4>
+                              <p class="mb-0 text-white-50">DeepOtolith welcomes collaborations with researchers who want to contribute towards the automation of fish ageing.</p>
+                              <hr class="d-none d-lg-block mb-0 ml-0" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="signup-section" id="contact">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-10 col-lg-8 mx-auto text-center">
+                  <h2 class="text-white">Contact Us</h2>
+                  <h4 class="text-white mb-4">If you have any questions, suggestions or interested in testing your case study, please contact Dr. Dimitris Politikos</h4>
+                    <i class="fas fa-envelope fa-2x mb-2 text-white-50"></i>
+                  <p class="text-white">dimpolit<i class="fas fa-at"></i>hcmr.gr</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="contact-section bg-black">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="card py-4 h-100">
+                      <div class="card-body text-center">
+                          <img class="img-fluid mb-3" src="{{url_for('static', filename='img/hcmr.png')}}" alt="HCMR Logo"/>
+                          <h4 class="text-uppercase m-0">HCMR</h4>
+                          <hr class="my-4" />
+                          <div class="small text-black-50"><a href="https://www.hcmr.gr/">Hellenic Centre for Marine Research</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="card py-4 h-100">
+                      <div class="card-body text-center">
+                          <img class="img-fluid mb-3 mb-lg-0" src="{{url_for('static', filename='img/bergen.png')}}" alt="Bergen University Logo"/>
+                          <h4 class="text-uppercase m-0">UIB</h4>
+                          <hr class="my-4" />
+                          <div class="small text-black-50"><a href="https://www.uib.no/en">University of Bergen</a></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="card py-4 h-100">
+                      <div class="card-body text-center">
+                          <img class="img-fluid mb-3" src="{{url_for('static', filename='img/hcmr.png')}}" alt="HCMR Logo"/>
+                          <h4 class="text-uppercase m-0">HCMR</h4>
+                          <hr class="my-4" />
+                          <div class="small text-black-50"><a href="https://www.hcmr.gr/">Hellenic Centre for Marine Research</a></div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+{% endblock %}

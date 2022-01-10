@@ -1,0 +1,2 @@
+.preview-box{display:flex;align-items:center;width:calc(100% - 30px);padding:10px 3%;border-bottom:1px solid #ddd;font-size:14px}.preview-box img{max-height:200px;max-width:200px;border-radius:4px;margin-right:10px}.preview-box .name{font-style:italic;color:#666;margin-right:7px}.preview-box .percent{font-weight:600}.preview-box .status{margin-left:7px;font-weight:600;text-transform:uppercase}.preview-image{float:left;width:50%}.preview-plot,.preview-progress{float:right;text-align:center}
+/*# sourceMappingURL=main.a80545a3.chunk.css.map */

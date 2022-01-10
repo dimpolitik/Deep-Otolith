@@ -1,0 +1,52 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.2",
+    "cors": "^2.8.5",
+    "cpx": "^1.5.0",
+    "file-saver": "^2.0.5",
+    "formik": "^2.2.6",
+    "material-ui": "^0.20.2",
+    "material-ui-dropzone": "^3.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-dropzone": "^11.3.0",
+    "react-dropzone-uploader": "^2.11.0",
+    "react-responsive-modal": "^6.1.0",
+    "react-scripts": "4.0.1",
+    "react-vis": "^1.11.7",
+    "reactjs-popup": "^2.0.5",
+    "superagent": "^6.1.0",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "cleanup": "rimraf build/ ../backend/static/js/*",
+    "copyJsFilesToBackend": "cpx build/static/js/* ../backend/static/js",
+    "build": "npm run cleanup && react-scripts build && npm run copyJsFilesToBackend",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
