@@ -36,11 +36,11 @@ const Preview = ({ meta, fileWithMeta }) => {
             <YAxis title="Probability"/>
             <VerticalGridLines />
             <HorizontalGridLines style={{stroke: '#B7E9ED'}} />
-            <VerticalBarSeries data={xhr.response ? JSON.parse(xhr.response) : null} />
+            <VerticalBarSeries data={JSON.parse(xhr.response)} />
         </XYPlot>}
         </div>
 		{status !== "done" && <h3>{xhrResponseSum = ''}</h3>}
-		{status === "done" && !xhrResponseSum.includes(xhr.response) && <div class="jsonContentDiv" style={{display: "none"}}>{'{'}{xhrResponseSum += ((xhrResponseSum) ? ',' : '') + JSON.stringify(name.replace(/\.[^/.]+$/, "")) + ': ' + xhr.responseText}{'}'}</div>}
+		{status === "done" && !xhrResponseSum.includes(xhr.response) && <div class="myText" style={{display: "none"}}>{xhrResponseSum += JSON.stringify(name) + ': ' + xhr.responseText + ','}</div>}
     </div>
   )
 }
@@ -67,75 +67,15 @@ function App() {
         return { url: /*API_URL +*/ '/predict', body }
     }
 
-	const downloadJsonFile = () => {
-		const btnJson = document.createElement("a");
-		const getLastElemIndex = document.getElementsByClassName('jsonContentDiv').length - 1;
-		const jsonFile = new Blob([document.getElementsByClassName('jsonContentDiv')[getLastElemIndex].innerHTML], {type: 'application/json'});
-		btnJson.href = URL.createObjectURL(jsonFile);
-		btnJson.download = "export.json";
-		document.body.appendChild(btnJson); // Required for this to work in FireFox
-		btnJson.click();
-	}
-	
-	const downloadCsvFile = () => {
-		const btnCsv = document.createElement("a");
-		const getLastElemIndex = document.getElementsByClassName('jsonContentDiv').length - 1;
-		
-		let jsonStr = '';
-		jsonStr = document.getElementsByClassName('jsonContentDiv')[getLastElemIndex].innerHTML;
-		
-        const json = JSON.parse(jsonStr);
-        
-		let num = 0;  
-		for (const fishName in json) {
-		  var fishSize = json[fishName]; 	
-		  for (let k = 0; k < 2; k++) {
-		    num = parseInt(fishSize.length);
-		  }
-		}
-				
-		// add header
-		//let csvStr = 'Image/Age-groups' + ', ' + '0' + ', ' + '1' + ', ' + '2' + ', ' + '3' + ', ' + '4' + ', ' + '5+' + '\r\n';
-	
-        let csvStr = 'Image/Age-group-probabilities';
-		if (num == 6){
-			for (let j = 0; j < num; j++) {
-              csvStr +=  ' ' + 'Age-' + j;
-            }
-		} else {
-			for (let j = 1; j <= num; j++) {
-              csvStr +=  ' ' + 'Age-' + j;
-            }   
-		}
-		csvStr += ' ' + 'Age-prediction' + '\r\n';
-		
-		let index = {}
-        for (const fishName in json) {
-		  let max_value = 0
-          var fishAgeProbabilities = json[fishName];
-          let str = fishName + ' ';
-          for (let i = 0; i < fishAgeProbabilities.length; i++) {
-            str += parseFloat(fishAgeProbabilities[i].y).toFixed(2);
-
-			if (parseFloat(fishAgeProbabilities[i].y).toFixed(4) > max_value) {
-			  max_value = parseFloat(fishAgeProbabilities[i].y).toFixed(4)
-			  index = parseInt(i);
-			}
-            if (i < fishAgeProbabilities.length) {
-              str +=  ' ';
-            }
-          }
-		  
-		  if (num != 6) {index += 1}
-		  str += index
-          csvStr += str + '\r\n';
-        }
-        const csvFile = new Blob([csvStr], {type: 'text/csv'});
-		btnCsv.href = URL.createObjectURL(csvFile);
-		btnCsv.download = "export.csv";
-		document.body.appendChild(btnCsv); // Required for this to work in FireFox
-		btnCsv.click();
-	}
+	const downloadTxtFile = () => {
+		const element = document.createElement("a");
+		const getLastElemIndex = document.getElementsByClassName('myText').length - 1;
+		const file = new Blob([document.getElementsByClassName('myText')[getLastElemIndex].innerHTML], {type: 'text/plain'});
+		element.href = URL.createObjectURL(file);
+		element.download = "myFile.txt";
+		document.body.appendChild(element); // Required for this to work in FireFox
+		element.click();
+	  }
 	  
 	function refreshPage() {
         window.location.reload();
@@ -165,12 +105,12 @@ function App() {
         </div>
       ))}
       </div>
-      <h3>2. Drop or Choose Otolith Images (.jpg or .png, max = 30 per minute)</h3>
+      <h3>2. Drop or Choose Otolith Images (.jpg or .png, max = 50)</h3>
       <div classeName="file-dropzone">
         {fishType && <Dropzone
           getUploadParams={getUploadParams}
-          maxFiles={30}
-          timeout={60000}
+          maxFiles={50}
+          timeout={5000}
           styles={{
             dropzone: { overflow: 'auto', height: '350px', border: '1px solid #999', background: '#f5f5f5' },
             inputLabelWithFiles: { margin: '20px 3%' }
@@ -182,10 +122,19 @@ function App() {
         }
       </div>
 	  <div>
-         <button onClick={downloadCsvFile}>Export to CSV</button>&nbsp;
-         <button onClick={ refreshPage }>Refresh page</button>	
+         <button onClick={downloadTxtFile}>Download JSON</button>     
+         <a href="https://cloudfs.hcmr.gr/index.php/s/fxeo8zXbr4zph9W/download" target="_blank" download= 'Json2Excel.r' > 
+          <button>
+            <i className="fas fa-download"/>
+              Convert JSON to Excel (R-file)
+          </button>
+        </a>   
+        &nsbp;
       </div>
-     
+          
+      <div>
+        <button onClick={ refreshPage }>Refresh page</button>
+      </div>
       
     </div>
     );

@@ -44,7 +44,7 @@ configure_uploads(app, images)
 @app.route("/")
 @app.route("/index")
 def home():
-    return render_template("home_dimit.html")
+    return render_template("home_dimit_local.html")
 
 
 @app.route("/fishtype")
