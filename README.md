@@ -4,7 +4,7 @@ Age-reading of fish otoliths or scales is important to estimate demographic and 
 
 DeepOtolith is easy to use, receiving as input otolith images from a specific fish species and returning fish age. DeepOtolith is based on convolutional neural networks (CNNs), a class of deep neural networks efficient for analysing images to resolve computer vision tasks. In our case, CNNs are trained on otolith images for a specific fish species and then used to make age predictions. DeepOtolith currently contains three species, but other species can be included, as related works are being published in the future, since the platform is scalable. DeepOtolith welcomes collaborations with researchers who want to contribute towards the automation of fish ageing. It is accessible at the following URL address: http://otoliths.ath.hcmr.gr/.
 
-This AI platform was the result of collaboration of: Hellenic Center for Marine Reserach (HCMR), Norwegian Computing Center (NR) and Institute of Marine Research (IMR) in Bergen, Norway. 
+This AI platform was the result of collaboration of: Hellenic Center for Marine Reserach (HCMR), National Centre of Scientific Research "Demokritos, Norwegian Computing Center (NR) and Institute of Marine Research (IMR) in Bergen, Norway. 
 
 <p align="center">
 <img src = "https://github.com/dimpolitik/Deep-Otolith/blob/main/SearchPage.PNG" width="60%" height="60%" />
