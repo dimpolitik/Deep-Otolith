@@ -25,10 +25,10 @@ compress = Compress()
 compress.init_app(app)
 # set rate limit
 limiter = Limiter(
-    app,
     key_func=get_remote_address,
     default_limits=["2000 per day", "500 per hour"]
 )
+limiter.init_app(app)
 # configuration
 # Using a development configuration
 app.config.from_object('config.DevConfig')
@@ -103,12 +103,12 @@ def predict():
                 
                 if (fishtype == "river-salmon"):
                     lst_age = [0] * 5 
-                    ind = np.int(yhat)
+                    ind = int(yhat.item())
                     lst_age[ind] = 1
                     ret = [ {'x': c, 'y': y } for c, y in zip (predictor['age-groups'], lst_age) ]
                 elif (fishtype == "sea-salmon"):
                     lst_age = [0] * 8
-                    ind = np.int(yhat)
+                    ind = int(yhat.item())
                     lst_age[ind] = 1
                     ret = [ {'x': c, 'y': y } for c, y in zip (predictor['age-groups'], lst_age) ]     
                 else:

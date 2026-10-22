@@ -1,10 +1,12 @@
-Flask
-Werkzeug
-flask_bootstrap4
-flask_compress
-flask_reuploaded
-flask_cors
-flask_limiter
-keras
-numpy
-matplotlib
+Flask==2.2.5
+Flask-Bootstrap==3.3.7.1
+Flask-Compress==1.14
+Flask-Cors==4.0.0
+Flask-Limiter==3.5.0
+Flask-Reuploaded==1.4.0
+Werkzeug==2.2.3
+efficientnet==1.1.1
+numpy==1.23.5
+urllib3<2
+tensorflow-macos==2.12.0; platform_system == "Darwin" and platform_machine == "arm64"
+tensorflow==2.12.0; platform_system != "Darwin" or platform_machine != "arm64"
